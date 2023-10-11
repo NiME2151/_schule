@@ -1,0 +1,11 @@
+input {
+    outline: none;
+}
+
+.red-input {
+    border: 1px solid red;
+}
+
+.grey-input {
+    border: 1px solid grey;
+}
