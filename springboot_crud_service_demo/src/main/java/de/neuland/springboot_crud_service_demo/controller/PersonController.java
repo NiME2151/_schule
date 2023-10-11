@@ -40,7 +40,7 @@ public class PersonController {
     private ResponseEntity<Person> getPerson(int id) {
         Person person = this.personDao.read(id);
         if (person == null) {
-            ResponseEntity.status(HttpStatus.NOT_FOUND);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
         return ResponseEntity.status(HttpStatus.OK).body(person);
     }
@@ -52,7 +52,7 @@ public class PersonController {
     public ResponseEntity<Map<Integer, Person>> getAllPersons() {
         Map<Integer, Person> persons = this.personDao.read();
         if (persons == null) {
-            ResponseEntity.status(HttpStatus.NOT_FOUND);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
         return ResponseEntity.status(HttpStatus.OK).body(persons);
     }
