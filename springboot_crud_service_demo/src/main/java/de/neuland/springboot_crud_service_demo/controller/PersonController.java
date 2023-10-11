@@ -93,11 +93,11 @@ public class PersonController {
 
     private ResponseEntity<Void> deletePerson(int id) {
         personDao.delete(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     @GetMapping("/")
     private ResponseEntity<String> welcome() {
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Hello World!");
+        return ResponseEntity.status(HttpStatus.OK).body("Hello World!");
     }
 }
