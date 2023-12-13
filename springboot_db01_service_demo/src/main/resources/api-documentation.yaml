@@ -1,0 +1,133 @@
+openapi: 3.0.3
+
+info:
+  version: 1.0.0
+  title: Guestbook API Documentation
+  description: The documentation for the guestbook API service
+servers:
+  - url: 'https'
+paths:
+  /guestbook/entries:
+    post:
+      tags:
+        - Guestbook-Entries
+      summary: Fügt einen Guestbook-Entry hinzu
+      operationId: addGuestbookEntry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuestbookEntryRequest'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GuestbookEntryResponse'
+    get:
+      tags:
+        - Guestbook-Entries
+      summary: Gibt alle Guestbook-Entries als List zurück
+      operationId: getAllGuestbookEntries
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GuestbookEntryResponse'
+  /guestbook/entries/{id}:
+    get:
+      tags:
+        - Guestbook-Entries
+      summary: Gibt den Guestbook-Entry mit der gesuchten ID zurück
+      operationId: getGuestbookEntry
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GuestbookEntryResponse'
+    delete:
+      tags:
+        - Guestbook-Entries
+      summary: Löscht einen Guestbook-Entry mit der gesuchten ID
+      operationId: deleteGuestbookEntryByUrl
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/schemas/GuestbookEntryRequest'
+      responses:
+        200:
+          $ref: '#/components/schemas/GuestbookEntryResponse'
+    put:
+      tags:
+        - Guestbook-Entries
+      summary: Ändert einen Guestbook-Entry mit der gesuchten ID
+      operationId: updateGuestbookEntry
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/schemas/GuestbookEntryRequest'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GuestbookEntryResponse'
+components:
+  schemas:
+    GuestbookEntryResponse:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Ein Buch
+        comment:
+          type: string
+          example: Ein Kommentar
+        commenter:
+          type: string
+          example: Nico Meyer
+        date:
+          type: string
+          format: date
+          example: 2023-12-06T10:20:00.000+00:00
+    GuestbookEntryRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Ein anderes Buch
+        comment:
+          type: string
+          example: Ein anderes Kommentar
+        commenter:
+          type: string
+          example: Niko Maier
+tags:
+  - name: Guestbook-Entries
+    description: API Endpunkte des Guestbook API Services

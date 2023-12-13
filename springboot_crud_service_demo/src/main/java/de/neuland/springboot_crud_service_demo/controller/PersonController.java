@@ -1,6 +1,5 @@
 package de.neuland.springboot_crud_service_demo.controller;
 
-import com.sun.source.tree.ArrayTypeTree;
 import de.neuland.springboot_crud_service_demo.dao.PersonDao;
 import de.neuland.springboot_crud_service_demo.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;

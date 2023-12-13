@@ -1,0 +1,16 @@
+2023-11-16 08:45:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabelle "ENTRY" nicht gefunden (diese Datenbank ist leer)
+Table "ENTRY" not found (this database is empty); SQL statement:
+select g1_0.id,g1_0.comment,g1_0.commenter,g1_0.date,g1_0.title from entry g1_0 order by g1_0.id desc [42104-214]
+2023-11-16 08:45:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabelle "ENTRY" nicht gefunden (diese Datenbank ist leer)
+Table "ENTRY" not found (this database is empty); SQL statement:
+select g1_0.id,g1_0.comment,g1_0.commenter,g1_0.date,g1_0.title from entry g1_0 order by g1_0.id desc [42104-214]
+2023-11-16 08:46:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabelle "ENTRY" nicht gefunden (diese Datenbank ist leer)
+Table "ENTRY" not found (this database is empty); SQL statement:
+select g1_0.id,g1_0.comment,g1_0.commenter,g1_0.date,g1_0.title from entry g1_0 order by g1_0.id desc [42104-214]
+2023-11-16 08:46:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabelle "ENTRY" nicht gefunden (diese Datenbank ist leer)
+Table "ENTRY" not found (this database is empty); SQL statement:
+select g1_0.id,g1_0.comment,g1_0.commenter,g1_0.date,g1_0.title from entry g1_0 order by g1_0.id desc [42104-214]

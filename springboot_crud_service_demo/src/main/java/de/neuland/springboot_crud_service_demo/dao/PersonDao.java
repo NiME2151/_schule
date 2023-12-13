@@ -9,35 +9,35 @@ import java.util.Map;
 @Repository
 public class PersonDao {
 
-    private Map<Integer, Person> personsHashMap;
+    private Map<Integer, Person> persons;
 
     public PersonDao() {
         initHashMap();
     }
 
     private void initHashMap() {
-        if (personsHashMap == null) {
-            personsHashMap = new HashMap<>();
+        if (persons == null) {
+            persons = new HashMap<>();
         }
     }
 
     public Person create(Person person) {
-        return personsHashMap.put(person.getId(), person);
+        return persons.put(person.getId(), person);
     }
 
     public Person read(int id) {
-        return personsHashMap.get(id);
+        return persons.get(id);
     }
 
     public Map<Integer, Person> read() {
-        return personsHashMap;
+        return persons;
     }
 
     public Person update(Person person) {
-        return personsHashMap.put(person.getId(), person);
+        return persons.put(person.getId(), person);
     }
 
     public void delete(int id) {
-        personsHashMap.remove(id);
+        persons.remove(id);
     }
 }
