@@ -1,0 +1,44 @@
+###
+GET http://localhost:8080/resources
+
+###
+POST http://localhost:8080/auth/signup
+Content-Type: Application/JSON
+
+{
+  "firstName": "Nico",
+  "lastName": "Meyer",
+  "mail": "nico.meyer@neuland-bfi.de",
+  "username": "nico.meyer",
+  "password": "meyer.nico"
+}
+
+###
+POST http://localhost:8080/auth/signup
+Content-Type: Application/JSON
+
+{
+"firstName": "Nikki",
+"lastName": "von Corondelle",
+"mail": "nikki.v.corondelle@corondelle.de",
+"username": "nikki.v.corondelle",
+"password": "corondelle.v.nikki"
+}
+
+###
+GET http://localhost:8080/users
+
+###
+POST http://localhost:8080/auth/signin
+Content-Type: Application/JSON
+
+{
+  "username": "nico.meyer",
+  "password": "meyer.nico"
+}
+
+> {%
+    client.global.set("auth_token", response.body.users);
+%}
+
+
