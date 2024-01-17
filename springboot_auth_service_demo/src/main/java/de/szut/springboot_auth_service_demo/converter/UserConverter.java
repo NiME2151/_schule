@@ -4,12 +4,12 @@ import de.szut.springboot_auth_service_demo.dto.SignInRequest;
 import de.szut.springboot_auth_service_demo.dto.SignUpRequest;
 import de.szut.springboot_auth_service_demo.dto.UserCompleteResponse;
 import de.szut.springboot_auth_service_demo.model.User;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Component
 public class UserConverter {
 
     public User convertRequestToModel(SignInRequest request) {

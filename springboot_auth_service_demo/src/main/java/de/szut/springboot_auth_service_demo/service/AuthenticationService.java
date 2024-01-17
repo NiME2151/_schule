@@ -5,18 +5,18 @@ import de.szut.springboot_auth_service_demo.model.User;
 import de.szut.springboot_auth_service_demo.repository.UserRepository;
 import de.szut.springboot_auth_service_demo.security.JwtToken;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class AuthenticationService {
 
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private JwtService jwtService;
+    private final UserRepository userRepository;
+    private final JwtService jwtService;
 
     public JwtToken signIn(User user) {
         Optional<User> userOptional = userRepository.findById(user.getUsername());

@@ -9,22 +9,20 @@ import de.szut.springboot_auth_service_demo.model.User;
 import de.szut.springboot_auth_service_demo.security.JwtToken;
 import de.szut.springboot_auth_service_demo.service.AuthenticationService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping("/auth")
 public class AuthenticationController {
 
-    @Autowired
-    private AuthenticationService authenticationService;
-    @Autowired
-    private UserConverter userConverter;
-    @Autowired
-    private TokenConverter tokenConverter;
+    private final AuthenticationService authenticationService;
+    private final UserConverter userConverter;
+    private final TokenConverter tokenConverter;
 
     @PostMapping("/signin")
     public ResponseEntity<AuthenticationResponse> signIn(@RequestBody SignInRequest request) {
