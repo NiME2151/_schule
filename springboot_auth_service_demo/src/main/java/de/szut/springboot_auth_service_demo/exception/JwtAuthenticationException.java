@@ -1,10 +1,12 @@
 package de.szut.springboot_auth_service_demo.exception;
 
-public class EntityExistsException extends RuntimeException {
+import javax.security.sasl.AuthenticationException;
+
+public class JwtAuthenticationException extends AuthenticationException {
 
     private final String message;
 
-    public EntityExistsException(String message) {
+    public JwtAuthenticationException(String message) {
         super(message);
         this.message = message;
     }

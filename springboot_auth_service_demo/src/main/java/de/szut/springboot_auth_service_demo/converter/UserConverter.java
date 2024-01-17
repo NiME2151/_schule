@@ -26,7 +26,19 @@ public class UserConverter {
         user.setMail(request.getMail());
         user.setUsername(request.getUsername());
         user.setPassword(request.getPassword());
+        user.setRole(request.getRole());
         return user;
+    }
+
+    public UserCompleteResponse convertModelToResponse(User user) {
+        return new UserCompleteResponse(
+                user.getUsername(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getMail(),
+                user.getPassword(),
+                user.getPasswordEncrypted(),
+                user.getRole());
     }
 
     public List<UserCompleteResponse> convertModelsToResponses(List<User> users) {
@@ -38,6 +50,7 @@ public class UserConverter {
                     user.getLastName(),
                     user.getMail(),
                     user.getPassword(),
+                    user.getPasswordEncrypted(),
                     user.getRole()
             );
             responses.add(ucs);

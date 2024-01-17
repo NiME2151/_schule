@@ -15,5 +15,6 @@ public class UserCompleteResponse {
     private String lastName;
     private String mail;
     private String password;
+    private String passwordEncrypted;
     private Role role;
 }

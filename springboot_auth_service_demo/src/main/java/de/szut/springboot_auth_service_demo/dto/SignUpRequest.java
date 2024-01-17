@@ -1,5 +1,6 @@
 package de.szut.springboot_auth_service_demo.dto;
 
+import de.szut.springboot_auth_service_demo.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,4 +17,5 @@ public class SignUpRequest {
     private String mail;
     private String username;
     private String password;
+    private Role role;
 }

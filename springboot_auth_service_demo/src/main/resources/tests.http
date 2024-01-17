@@ -1,44 +1,51 @@
-###
-GET http://localhost:8080/resources
-
-###
+### signup
 POST http://localhost:8080/auth/signup
-Content-Type: Application/JSON
+Content-Type: application/json
 
 {
   "firstName": "Nico",
   "lastName": "Meyer",
   "mail": "nico.meyer@neuland-bfi.de",
   "username": "nico.meyer",
-  "password": "meyer.nico"
+  "password": "passwort123",
+  "role": "USER"
 }
 
-###
+> {%
+  client.global.set("user_token", response.body.token);
+%}
+
+### GET resources
+GET http://localhost:8080/resources
+Authorization: Bearer {{user_token}}
+
+
+### signup alt
 POST http://localhost:8080/auth/signup
 Content-Type: Application/JSON
 
 {
-"firstName": "Nikki",
-"lastName": "von Corondelle",
-"mail": "nikki.v.corondelle@corondelle.de",
-"username": "nikki.v.corondelle",
-"password": "corondelle.v.nikki"
+  "firstName": "Nikki",
+  "lastName": "von Corondelle",
+  "mail": "nikki.v.corondelle@corondelle.de",
+  "username": "nikki.v.corondelle",
+  "password": "passwort123",
+  "role": "USER"
 }
 
-###
+### GET users
 GET http://localhost:8080/users
+Authorization: Bearer {{user_token}}
 
-###
+### signin
 POST http://localhost:8080/auth/signin
-Content-Type: Application/JSON
+Content-Type: application/json
 
 {
   "username": "nico.meyer",
-  "password": "meyer.nico"
+  "password": "passwort123"
 }
 
 > {%
-    client.global.set("auth_token", response.body.users);
+  client.global.set("user_token", response.body.token);
 %}
-
-
