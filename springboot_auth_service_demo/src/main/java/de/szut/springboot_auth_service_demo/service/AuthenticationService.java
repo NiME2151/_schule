@@ -21,7 +21,7 @@ public class AuthenticationService {
     public JwtToken signIn(User user) {
         Optional<User> userOptional = userRepository.findById(user.getUsername());
         if (userOptional.isEmpty()) {
-            throw new EntityNotFoundException();
+            throw new EntityNotFoundException("Username existiert nicht");
         }
         return jwtService.generateToken();
     }
